@@ -966,6 +966,7 @@ GameObject:
   - component: {fileID: 1635198131}
   - component: {fileID: 1635198130}
   - component: {fileID: 1635198129}
+  - component: {fileID: 1635198133}
   m_Layer: 0
   m_Name: test_ressource
   m_TagString: Untagged
@@ -1059,6 +1060,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635198133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635198128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c1f755b8d6f9d4cb7ed6a6661becde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proximitydistance: 1
+  employe: {fileID: 1725331130}
 --- !u!1 &1725331123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1088,7 @@ GameObject:
   - component: {fileID: 1725331125}
   - component: {fileID: 1725331124}
   - component: {fileID: 1725331129}
+  - component: {fileID: 1725331130}
   m_Layer: 0
   m_Name: Employee
   m_TagString: Untagged
@@ -1090,7 +1106,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1197,12 +1213,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725331123}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1738b2fe3ba219844abfec9043db07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1966346793}
+--- !u!114 &1725331130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725331123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310f1fbd7ab88d142be606a7b3d740ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1966346793}
+  ressource: {fileID: 1635198133}
+  MaxEnergyTest: 100
+  EnergyTest: 0
+  SpeedDrainEnergy: 3
 --- !u!1 &1957869508
 GameObject:
   m_ObjectHideFlags: 0
