@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
-public class Ressource_test : MonoBehaviour
+public class Bureau_Test : MonoBehaviour
 {
     public float proximitydistance = 1;
-    public Employee_Comportement employe;     
+    public Employee_Comportement employe;
+    private float timer = 0f;
 
     void Update()
     {
@@ -15,7 +14,13 @@ public class Ressource_test : MonoBehaviour
         if (distance <= proximitydistance)
         {
             Debug.Log("Employé pas loin !");
-            employe.EnergyTest = employe.MaxEnergyTest; //recharge entierement sa jauge
+            timer += Time.deltaTime;
+            if (timer >= 1f)
+            {
+                employe.TravailTest += 1;
+                timer = 0f; //on réinitialise le timer
+            }
         }
+
     }
 }
