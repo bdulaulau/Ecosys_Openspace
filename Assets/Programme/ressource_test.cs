@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class ressource_test : MonoBehaviour
 {
     public float proximitydistance = 1;
-    public Employe_Comportement employe;    
+    public Employee_Comportement employe;    
     private float timer = 0f; 
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class ressource_test : MonoBehaviour
         {
             Debug.Log("Employé pas loin !");
             timer += Time.deltaTime;
-            employe.EnergyTest = employe.MaxEnergyTest;
+            employe.EnergyTest = employe.MaxEnergyTest; //recharge entierement sa jauge
         }
     }
 }
