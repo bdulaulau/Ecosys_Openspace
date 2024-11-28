@@ -14,14 +14,16 @@ public class Employee_Comportement : MonoBehaviour
 
     private NavMeshAgent employee;
     
-    public ressource_test ressource;  
+    public Ressource_test ressource;  
 
     //Settings
     public int MaxEnergyTest = 100;
     public int EnergyTest;
-    public int SpeedDrainEnergy = 3;
+    //public int SpeedDrain = 3;
     private float timer = 0f;
     public int RechargeEnergy = 95;
+    public int MaxTravailTest = 100;
+    public int TravailTest;
 
 
     private void Start()
@@ -41,15 +43,18 @@ public class Employee_Comportement : MonoBehaviour
             timer = 0f; //on réinitialise le timer
             Debug.Log("L'énergie de "+employee+" est de " + EnergyTest);
         }
+        employee.destination = Target.position;
         if (EnergyTest <= RechargeEnergy) //vérifie si il est au stade où il doit recharger sa jauge 
         {
             employee.destination = ressource.transform.position; //dirige l'employé vers le lieu de recharge
             Debug.Log("L'énergie de " + employee + " est de " + EnergyTest);
         }
-        //else
-        //{
-          //  employee.destination = Target.position;
-       // }
+
+        if (TravailTest == MaxTravailTest)
+        {
+            Destroy(employee.gameObject);
+        }
+
     }
 
 }
