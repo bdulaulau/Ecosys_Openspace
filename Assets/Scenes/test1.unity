@@ -1236,9 +1236,11 @@ MonoBehaviour:
   ressource: {fileID: 1635198133}
   MaxEnergyTest: 100
   EnergyTest: 0
-  RechargeEnergy: 70
-  MaxTravailTest: 100
+  RechargeEnergy: 80
+  MaxTravailTest: 20
   TravailTest: 0
+  MaxStress: 50
+  Stress: 0
 --- !u!114 &1725331131
 MonoBehaviour:
   m_ObjectHideFlags: 0

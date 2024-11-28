@@ -19,12 +19,17 @@ public class Employee_Comportement : MonoBehaviour
     //Settings
     public int MaxEnergyTest = 100;
     public int EnergyTest;
-    //public int SpeedDrain = 3;
+
     private float timer = 0f;
     public int RechargeEnergy = 95;
+
     public int MaxTravailTest = 100;
     public int TravailTest;
 
+    public int MaxStress = 50;
+    public int Stress;
+
+    private int Random;
 
     private void Start()
     {
@@ -41,20 +46,26 @@ public class Employee_Comportement : MonoBehaviour
         {
             EnergyTest -= 1;
             timer = 0f; //on réinitialise le timer
+            Debug.Log("Random = " + Random);
             Debug.Log("L'énergie de "+employee+" est de " + EnergyTest);
         }
-        employee.destination = Target.position;
+        employee.destination = Target.position; //va travailler
+        RechargeVerif();
+        if (TravailTest == MaxTravailTest)
+        {
+            Destroy(employee.gameObject); //élimine l'employé dès qu'il a terminé sa jauge de travail
+        }
+
+    }
+
+    public void RechargeVerif()
+    {
         if (EnergyTest <= RechargeEnergy) //vérifie si il est au stade où il doit recharger sa jauge 
         {
             employee.destination = ressource.transform.position; //dirige l'employé vers le lieu de recharge
             Debug.Log("L'énergie de " + employee + " est de " + EnergyTest);
         }
-
-        if (TravailTest == MaxTravailTest)
-        {
-            Destroy(employee.gameObject);
-        }
-
     }
+
 
 }
