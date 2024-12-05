@@ -12,20 +12,20 @@ public class Bureau_Test : MonoBehaviour
     private float timer = 0f;
 
 
-    void Update()
-    {
-        Employee = GameObject.Find("Employee");
-        float distance = Vector3.Distance(transform.position, Employee.transform.position);
-        if (distance <= proximitydistance)
-        {
-            Debug.Log("Employé pas loin !");
-            timer += Time.deltaTime;
-            if (timer >= 1f)
-            {
-                employee_comportement.TravailTest += 1;
-                timer = 0f; //on réinitialise le timer
-            }
-        }
+    //void Update()
+    //{
+    //    Employee = GameObject.Find("Employee");
+    //    float distance = Vector3.Distance(transform.position, Employee.transform.position);
+    //    if (distance <= proximitydistance)
+    //    {
+    //        Debug.Log("Employé pas loin !");
+    //        timer += Time.deltaTime;
+    //        if (timer >= 1f)
+    //        {
+    //            employee_comportement.TravailTest += 1;
+    //            timer = 0f; //on réinitialise le timer
+    //        }
+    //    }
 
-    }
+    //}
 }
