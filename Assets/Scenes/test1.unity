@@ -1841,7 +1841,12 @@ PrefabInstance:
         type: 3}
       propertyPath: ressource
       value: 
-      objectReference: {fileID: 1635198133}
+      objectReference: {fileID: 0}
+    - target: {fileID: 916634361805809535, guid: a8cf1e5fd695d334d93724fdbaf3ea6b,
+        type: 3}
+      propertyPath: MaxTravailTest
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7513467658851073646, guid: a8cf1e5fd695d334d93724fdbaf3ea6b,
         type: 3}
       propertyPath: m_LocalPosition.x
