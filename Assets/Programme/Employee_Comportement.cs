@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -10,11 +11,11 @@ using UnityEngine.AI;
 public class Employee_Comportement : MonoBehaviour
 {
 
-    public Transform Target;
+    public GameObject bureau;
 
-    private NavMeshAgent employee;
+    public NavMeshAgent employee;
     
-    public Ressource_test ressource;  
+    public GameObject ressource;  
 
     //Settings
     public int MaxEnergyTest = 100;
@@ -26,16 +27,18 @@ public class Employee_Comportement : MonoBehaviour
     public int MaxTravailTest = 100;
     public int TravailTest;
 
-    public int MaxStress = 50;
-    public int Stress;
+    //public int MaxStress = 50;
+    //public int Stress;
 
-    private int Random;
+    //private int Random;
 
     private void Start()
     {
         EnergyTest = MaxEnergyTest; //permet de définir au lancer la jauge à son maximum
-       
-        employee = GetComponent<NavMeshAgent>(); 
+        employee = GetComponent<NavMeshAgent>();
+        Target = GameObject.Find("bureau");
+        ressource = GameObject.Find("test_ressource");
+        employee.name = "Employee"; //changer de nom
     }
 
      
@@ -46,10 +49,10 @@ public class Employee_Comportement : MonoBehaviour
         {
             EnergyTest -= 1;
             timer = 0f; //on réinitialise le timer
-            Debug.Log("Random = " + Random);
+            //Debug.Log("Random = " + Random);
             Debug.Log("L'énergie de "+employee+" est de " + EnergyTest);
         }
-        employee.destination = Target.position; //va travailler
+        employee.destination = bureau.transform.position; //va travailler
         RechargeVerif();
         if (TravailTest == MaxTravailTest)
         {
