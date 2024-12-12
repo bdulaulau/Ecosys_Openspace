@@ -12,7 +12,7 @@ public class Employee_Comportement : MonoBehaviour
 {
 
     public GameObject bureau;
-
+    public GameObject Manager;
     public NavMeshAgent employee;
 
     public float proximitydistance_bureau = 1;
@@ -33,7 +33,7 @@ public class Employee_Comportement : MonoBehaviour
     //public int MaxStress = 50;
     //public int Stress;
 
-    private int Random;
+    //private int Random;
 
     private void Start()
     {
@@ -41,6 +41,7 @@ public class Employee_Comportement : MonoBehaviour
         employee = GetComponent<NavMeshAgent>();
         bureau = GameObject.Find("bureau");
         ressource = GameObject.Find("test_ressource");
+        Manager = GameObject.Find("Manager");
         employee.name = "Employee"; //changer de nom
     }
 
@@ -48,15 +49,25 @@ public class Employee_Comportement : MonoBehaviour
     private void Update()
     {  
         
-        float distance_bureau = Vector3.Distance(bureau.transform.position, employee.transform.position);
-        float distance_ressource = Vector3.Distance(ressource.transform.position, employee.transform.position);
-
-        RechargeVerif();
+        float distance_bureau = Vector3.Distance(bureau.transform.position, employee.transform.position);//on récupére la position du bureau
+        float distance_ressource = Vector3.Distance(ressource.transform.position, employee.transform.position);//on récupére la position du bloc "ressource"
+        RechargeVerif(); 
         if (TravailTest == MaxTravailTest)
         {
-            Destroy(employee.gameObject); //élimine l'employé dès qu'il a terminé sa jauge de travail
+            int randomNumber = UnityEngine.Random.Range(0, 101);//on génère une chiffre entre 100
+            Debug.Log("Proba" + randomNumber);
+            if (randomNumber > 25)
+                {
+                Destroy(employee.gameObject); //élimine l'employé dès qu'il a terminé sa jauge de travail
+                }
+            else 
+            {
+                Instantiate(Manager);
+                //Employee_Comportement script = Manager.GetComponent<Employee_Comportement>();
+                Debug.Log("MANAGER HAS BEEN BORN");
+                Destroy(employee.gameObject);
+            }
         }
-
 
         timer += Time.deltaTime;
         if (timer >= 1f) //permet de baisser de 1 toute les 1s la jauge
@@ -67,8 +78,8 @@ public class Employee_Comportement : MonoBehaviour
             }
             EnergyTest -= 1;
             timer = 0f; //on réinitialise le timer
-            Debug.Log("Random = " + Random);
-            Debug.Log("L'énergie de " + employee + " est de " + EnergyTest);
+            //Debug.Log("Random = " + Random);
+            //Debug.Log("L'énergie de " + employee + " est de " + EnergyTest);
         }
         if (distance_ressource <= proximitydistance_ressource) //CODE RESSOURCE /!\
         {
