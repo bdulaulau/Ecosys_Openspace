@@ -86,14 +86,14 @@ public class Employee_Comportement : MonoBehaviour
             Debug.Log("Employé pas loin !");
             EnergyTest = MaxEnergyTest; //recharge entierement sa jauge
         }
-        if (EnergyTest <= RechargeEnergy)
-        {
-            employee.destination = ressource.transform.position;
-        }
-        else
-        {
-            employee.destination = bureau.transform.position;
-        }
+        //if (EnergyTest <= RechargeEnergy)
+        //{
+        //    employee.destination = ressource.transform.position;
+        //}
+        //else
+        //{
+        //    employee.destination = bureau.transform.position;
+        //}
 
        }
 
