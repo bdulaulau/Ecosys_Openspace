@@ -59,13 +59,15 @@ public class Employee_Comportement : MonoBehaviour
             if (randomNumber > 25)
                 {
                 Destroy(employee.gameObject); //élimine l'employé dès qu'il a terminé sa jauge de travail
-                }
+                return;
+            }
             else 
             {
                 Instantiate(Manager);
                 //Employee_Comportement script = Manager.GetComponent<Employee_Comportement>();
                 Debug.Log("MANAGER HAS BEEN BORN");
                 Destroy(employee.gameObject);
+                return;
             }
         }
 
@@ -86,16 +88,16 @@ public class Employee_Comportement : MonoBehaviour
             Debug.Log("Employé pas loin !");
             EnergyTest = MaxEnergyTest; //recharge entierement sa jauge
         }
-        //if (EnergyTest <= RechargeEnergy)
-        //{
-        //    employee.destination = ressource.transform.position;
-        //}
-        //else
-        //{
-        //    employee.destination = bureau.transform.position;
-        //}
+        if (EnergyTest <= RechargeEnergy)
+        {
+            employee.destination = ressource.transform.position;
+        }
+        else
+        {
+            employee.destination = bureau.transform.position;
+        }
 
-       }
+    }
 
 
     public void RechargeVerif()
