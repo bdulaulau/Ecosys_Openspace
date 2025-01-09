@@ -145,7 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1738b2fe3ba219844abfec9043db07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  proximitydistance: 1
+  Employee: {fileID: 0}
+  bureau: {fileID: 0}
 --- !u!114 &916634361805809535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,15 +160,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310f1fbd7ab88d142be606a7b3d740ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  bureau: {fileID: 0}
+  Manager: {fileID: 0}
+  employee: {fileID: 0}
+  proximitydistance_bureau: 1
+  proximitydistance_ressource: 1
   ressource: {fileID: 0}
   MaxEnergyTest: 100
   EnergyTest: 0
   RechargeEnergy: 80
-  MaxTravailTest: 20
+  MaxTravailTest: 30
   TravailTest: 0
-  MaxStress: 50
-  Stress: 0
 --- !u!114 &8380972718636532039
 MonoBehaviour:
   m_ObjectHideFlags: 0

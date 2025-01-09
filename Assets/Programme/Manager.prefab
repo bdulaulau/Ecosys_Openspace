@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7616891859852272541}
   - component: {fileID: 4282787723183965024}
   - component: {fileID: 8369539965785424531}
+  - component: {fileID: 6775544548316376500}
+  - component: {fileID: 5653694233451436057}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -107,3 +109,49 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &6775544548316376500
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691640865950405104}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.49999997
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.9999999
+  m_BaseOffset: 0.99999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5653694233451436057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691640865950405104}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f032e7967944f49ab6aa282d49b4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Employee: {fileID: 8327213818457841539, guid: a8cf1e5fd695d334d93724fdbaf3ea6b,
+    type: 3}
+  bureau: {fileID: 0}
+  Manager: {fileID: 0}
+  proximitydistance_bureau: 1
+  proximitydistance_ressource: 1
+  ressource: {fileID: 0}
+  MaxEnergyTest: 100
+  EnergyTest: 0
+  RechargeEnergy: 95
+  MaxTravailTest: 100
+  TravailTest: 0
