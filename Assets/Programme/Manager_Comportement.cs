@@ -4,14 +4,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Manager_Comportement : MonoBehaviour
 {
-    public GameObject Employee;
     public GameObject bureau;
-
+    public GameObject Employee;
     public NavMeshAgent Manager;
 
     public float proximitydistance_bureau = 1;
     public float proximitydistance_ressource = 1;
-
+    private int roulette;
     public GameObject ressource;
 
     //Settings
@@ -33,7 +32,6 @@ public class Manager_Comportement : MonoBehaviour
         Manager = GetComponent<NavMeshAgent>();
         bureau = GameObject.Find("bureau");
         ressource = GameObject.Find("test_ressource");
-        Manager.name = "Manager"; //changer de nom
     }
 
 
@@ -52,6 +50,7 @@ public class Manager_Comportement : MonoBehaviour
                 TravailTest += 1;
             }
             EnergyTest -= 1;
+            roulette += 1;
             timer = 0f; //on réinitialise le timer
             Debug.Log("L'énergie de " + Manager + " est de " + EnergyTest);
         }
@@ -70,16 +69,22 @@ public class Manager_Comportement : MonoBehaviour
         }
 
         RechargeVerif();
-        if (timer >= 600f)
+        if (TravailTest == MaxTravailTest)
         {
             Destroy(Manager.gameObject); //élimine l'employé dès qu'il a terminé sa jauge de travail
+            return;
         }
         //à configurer avec le timer 2 minutes 
         {
             int randomValue = Random.Range(1, 101);
-            if (randomValue <= 25)
+            if (roulette == 5)
             {
-                Instantiate(Employee, Employee.transform);
+                roulette = 0;
+                if (randomValue <= 10)
+                {
+                    Instantiate(Employee, Employee.transform);
+                    Instantiate(Employee, Employee.transform);
+                }
             }
         }
     }
